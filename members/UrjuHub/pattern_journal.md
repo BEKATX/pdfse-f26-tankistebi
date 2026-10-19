@@ -7,3 +7,5 @@ Instead of waiting for the coding and build phase to start later in the semester
 
 ## Week 2 · Evidence over opinion
 During the Four Filters evaluation, I pushed the team to choose the Block F laundry bottleneck over my own pooled ideas because the evidence of reachable, daily pain was indisputable. Even though my primary accountability is Build, I exercised agency by logging Interview 01 and conducting Interview 02 with Block F residents. In the interviews, I held back any urge to propose tech features or app ideas and strictly logged verbatim Georgian quotes to capture the real emotional friction (such as wet laundry being dumped on dusty tables). Drove the evidence backing line 1 in [DECISIONS.md](../../DECISIONS.md).
+
+## Week 3 · Synthesis over summaryAnalyzed the tension between timer drift and unannounced walk-ins at the -1 floor facility. Stepped outside my build role to cluster quotes around how informal Messenger chat inquiries fail to prevent empty trips. Verified that the real emotional pain point was not waiting time, but clothes dumped on dirty tables.
