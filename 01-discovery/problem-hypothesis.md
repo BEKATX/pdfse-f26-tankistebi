@@ -25,5 +25,5 @@
 - [x] "We are wrong if" could be verified in a single interview log
 - [x] The "we are wrong if" line is copied to the top of our script and log template
 
-## After interviews (fill in Week 3)
-**Verdict:** [to be filled in Week 3] · **Evidence:** [links to logs]
+## After interviews (filled in Week 3)
+**Verdict:** confirmed · **Evidence:** logs 01-resident-blockf.md, 02-resident-blockf.md, 03-resident-blockf.md. See DECISIONS.md.
