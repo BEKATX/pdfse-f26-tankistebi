@@ -1,3 +1,5 @@
 Wk2 · Investigate: how KIU dorm residents in Block F manage laundry room machine bottlenecks and room visits · evidence: 00-foundation/problem-pool.md (Beka statement 1), 00-foundation/four-filters-scorecard.md · runner-up: evening food access after campus cafeteria closure · owner: BT
 
 Wk3 · Prediction "students almost always find an open machine" verdict: confirmed (residents make 2–3 blind trips to -1 floor; key pain is idle laundry dumped on dirty surfaces and untracked basket queues) · evidence: 01-discovery/interview-logs/01-resident-blockf.md, 02-resident-blockf.md, 03-resident-blockf.md, 04-resident-blockf.md, 05-resident-blockg.md, 06-resident-blockf.md · owner: BT
+
+Wk4 · Problem statement v1: uncoordinated -1 floor laundry room bottleneck, timer drift, and idle clothes removal for KIU Block F/G residents · evidence: 01-discovery/problem-statement.md, synthesis/patterns-analysis.md · owner: BT
