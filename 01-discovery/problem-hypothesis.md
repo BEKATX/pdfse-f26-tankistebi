@@ -26,4 +26,4 @@
 - [x] The "we are wrong if" line is copied to the top of our script and log template
 
 ## After interviews (filled in Week 3)
-**Verdict:** confirmed · **Evidence:** logs 01-resident-blockf.md, 02-resident-blockf.md, 03-resident-blockf.md. See DECISIONS.md.
+**Verdict:** confirmed · **Evidence:** logs 01-resident-blockf.md, 02-resident-blockf.md, 03-resident-blockf.md, 04-resident-blockf.md. See DECISIONS.md.
