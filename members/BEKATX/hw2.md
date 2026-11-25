@@ -27,14 +27,17 @@ Walking the production URL myself on mobile data in the basement stairwell prove
 
 ## 3. My DECISIONS.md lines
 
-> `Wk5 · Prototype v2: added preset cycle buttons (30m, 45m, 60m) and a 'Notify when free' button on busy machines · evidence: 02-design/user-testing/usability-findings.md (sessions 2, 3) · owner: GU`
+> `Wk5 · North star: successful wash starts preceded by a remote status check per active resident per week; rejected total page views (presence, fails test 1) and registered dorm accounts (cumulative, fails test 3) · evidence: 03-build/analytics/event-schema.md, 01-discovery/interview-logs/01-resident-blockf.md, 02-resident-blockf.md, 06-resident-blockf.md · owner: BT`
 
-I drove the evidence for this decision during Usability Session 2, where the participant stalled because they did not know the exact minute count of the physical washer programs.
+I owned this decision, with the evidence living in `03-build/analytics/event-schema.md` and interview logs 01, 02, and 06, which proved that value lands only when an open machine is verified before heading downstairs.
 
-> `Wk7 · Gate passed: live at the README's Live product link, north star event firing from production, PostHog 3 = database 3 · evidence: README links, 03-build/analytics/event-schema.md · owner: AK`
+> `Wk6 · MVP boundary: 5-step journey (open status page to unload machine); cut user accounts, SMS/Messenger push bot, and advance booking queue · evidence: 03-build/mvp-boundary.md, logs 01, 04, 06, 08, sessions 1 to 3 · owner: BT`
 
-I conducted the live mobile walk on cellular data that satisfied this gate, triggering and completing cycles on machine `f-1` while AK monitored PostHog Activity.
+The evidence is documented in `03-build/mvp-boundary.md` and usability sessions 1 to 3, showing that login friction kills adoption while a 5-step journey solves the bottleneck without complex reservation queues.
 
+> `Wk7 · Gate passed: live at the README's Live product link, north star event firing from production, PostHog 3 = database 3 · evidence: README links, 03-build/analytics/event-schema.md · owner: BT`
+
+The evidence is our Gate reconcile block in `03-build/analytics/event-schema.md`, where the 3 test cycles I walked on mobile data in the basement matched the Neon database count character-for-character.
 ## 4. My person this week
 
 **The field-week person I am responsible for:** Resident-F105, 1st floor Block F (from Interview 07) · **how and when the link reaches them:** direct message on Messenger on Sunday at 18:00 before the evening laundry rush, asking him to test the live link when doing his laundry.
