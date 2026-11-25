@@ -10,3 +10,6 @@ Led the formulation of our Four Filters scorecard and problem hypothesis, backin
 
 ## Week 3 · Synthesis over summary
 Synthesized the findings from our 6 interview logs into an affinity map and 5 Whys analysis. Instead of treating complaints as generic feature requests, I helped identify the root causes: the physical disconnect to the -1 floor and the hygiene breakdown when finished cycles sit idle. Logged our prediction confirmation in DECISIONS.md backed by all 6 logs.
+
+## Week 5 · Build to fail, measure value
+Defined our North Star metric ("successful wash starts preceded by a remote status check per active resident per week") after explicitly rejecting vanity metrics like total page views and registered student counts in `DECISIONS.md` Line 4. Helped verify the 3-screen v0.dev prototype on a real phone, ensuring all login and chat bloat was stripped out before testing. Prepared to run upcoming usability tests with Block F residents. Links: `DECISIONS.md`, `03-build/analytics/event-schema.md`.
