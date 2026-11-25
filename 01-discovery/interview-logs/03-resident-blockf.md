@@ -1,10 +1,10 @@
-Interview 03 · Resident, Block C 4th Floor · (code name: Resident-C402)
+Interview 03 · Resident, Block F 4th Floor · (code name: Resident-F402)
 
 **Week:** 2 · **Asker:** GU · **Logger:** AK · **Consent:** yes; notes only, no recording
 
 **Real or practice:** real
 
-**Context:** 3rd-year Management student living in Block C, does laundry once a week, usually on Sunday afternoons. Our prediction: We are wrong if students think it is acceptable to leave finished laundry inside a machine for more than 15–20 minutes, or if they prefer human communication over an automated digital status tracker.
+**Context:** 3rd-year Management student living in Block F, does laundry once a week, usually on Sunday afternoons. Our prediction: We are wrong if students think it is acceptable to leave finished laundry inside a machine for more than 15–20 minutes, or if they prefer human communication over an automated digital status tracker.
 
 **Quotes (verbatim Georgian as spoken; English beside it; ★ = surprise)**
 
@@ -12,7 +12,7 @@ Interview 03 · Resident, Block C 4th Floor · (code name: Resident-C402)
 
 "ერთხელ 40 წუთი ველოდე პატრონს. მერე მე თვითონ გავამოღე, მაგრამ პარკში ჩავალაგე და მაგიდაზე ისე დავდე, რომ არ დასვრილიყო." / "Once I waited 40 minutes for the owner. Then I took it out myself, but put it inside a plastic bag on the table so it wouldn't get dirty." ★
 
-"ტელეგრამში წერას აზრი არ აქვს, სულ იგნორია ან ჩატი ისპამება. აპლიკაცია ან მარტივი საიტი ჯობია, სადაც პირდაპირ გამოჩნდება ტაიმერი." / "Writing in Telegram makes no sense, it gets completely ignored or spammed. An app or simple site is better, where the timer shows directly."
+"მესინჯერშ წერას აზრი არ აქვს, სულ იგნორია ან ჩატი ისპამება. აპლიკაცია ან მარტივი საიტი ჯობია, სადაც პირდაპირ გამოჩნდება ტაიმერი." / "Writing in Messenger makes no sense, it gets completely ignored or spammed. An app or simple site is better, where the timer shows directly."
 
 "ყველაზე მეტად ის მიშლის ნერვებს, რომ არ იცი, როდის განთავისუფლდება — შეიძლება 5 წუთში ან 1 საათში." / "What annoys me most is not knowing when it will free up — it could be in 5 minutes or in 1 hour." ★
 
