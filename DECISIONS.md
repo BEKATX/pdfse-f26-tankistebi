@@ -5,3 +5,5 @@ Wk3 · Prediction "students almost always find an open machine" verdict: confirm
 Wk4 · Problem statement v1: uncoordinated -1 floor laundry room bottleneck, timer drift, and idle clothes removal for KIU Block F/G residents · evidence: 01-discovery/problem-statement.md, synthesis/patterns-analysis.md · owner: BT
 
 Wk5 · North star: successful wash starts preceded by a remote status check per active resident per week; rejected total page views (presence, fails test 1) and registered dorm accounts (cumulative, fails test 3) · evidence: 03-build/analytics/event-schema.md, 01-discovery/interview-logs/01-resident-blockf.md, 02-resident-blockf.md, 06-resident-blockf.md · owner: BT
+
+Wk6 · MVP boundary: 5-step journey (open status page to unload machine); cut user accounts, SMS/Messenger push bot, and advance booking queue · evidence: 03-build/mvp-boundary.md, logs 01, 04, 06, 08, sessions 1 to 3 · owner: AK
