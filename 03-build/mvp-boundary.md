@@ -6,7 +6,7 @@ The smallest complete user journey that tests whether the product creates value.
 
 **The one person walking this journey:** Resident-F304, 3rd-year student on the 3rd floor of Block F, carries full laundry baskets down 3 flights of stairs to -1 twice a week, frustrated by finding full machines and guessing timers.
 
-## The journey
+## The journey 
 
 1. Resident in their dorm room opens the tracker link (from a browser bookmark or pinned Messenger post) and selects their building (Block F or Block G).
 2. Resident checks the 4 washer cards on screen to see which machines are available and how many minutes remain on running machines.
