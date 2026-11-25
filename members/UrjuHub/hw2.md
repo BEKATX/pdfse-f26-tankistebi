@@ -1,43 +1,40 @@
 # Homework 2 · Giorgi Urjumelashvili (@UrjuHub) · Team TANKISTEBI
-
+ 
 ## 1. Ship report
-
+ 
 | What I shipped | Story or rung | Commit link(s), from my account | Live at the production URL? | Walked or checked by |
 |---|---|---|---|---|
-| Block F and Block G building selector tabs and live machine cards | S2 | `8f4b12c` | Yes | BT checked on phone |
-| Inaccurate timer / broken washer flag UI and report modal | S5b (Sprint 2) | `4c7a91d` | Yes | AK verified payload |
-| Walked the entire journey on phone (mobile data) to clear Rungs 1 & 2 | Gate walk (Rung 1, 2) | `3e9f02b` | Yes | AK watched PostHog Activity |
-| Reviewed S4 (Unload and free machine) on phone at production URL | S4 (as reviewer) | `1b8d5e4` | Yes | AK & I checked state reset |
-| Logged prototype test Session 2 with Resident-F305 | Test plan, Session 2 | `7a2c89f` | n/a | BT read log |
-
-**The piece I am least sure works for a real person, and how I will know by Lab 8:** whether students living in Block G switch to the Block G tab or if they mistakenly look at Block F by default because Block F is selected initially. I will check the `block` property on `resident_opens_status_page` and `resident_starts_wash_timer` in PostHog on Wednesday to see if Block G events are actually occurring alongside Block F.
-
-**One thing I did that was not my assigned story:** during the Lab 7 production walk on mobile data, I noticed that the machine countdown timers on iOS Safari were rendering as `NaN:NaN` because Safari parses ISO timestamps more strictly than Chromium. I flagged the string formatting mismatch right away to AK so we could normalize the timestamp parsing before sharing the live link with dorm residents.
-
+| Machine unload button, status reset handler, and unload API endpoint | S4 | `commit_gu_01` | Yes | BT walked on phone |
+| Audio chime alert triggered in browser when countdown reaches 0:00 | S6 (Sprint 2) | `commit_gu_02` | Yes | AK tested in browser |
+| Neon Postgres table schemas and initial machine seed data | S1 / Setup | `commit_gu_03` | Yes | AK verified connection |
+| Reviewed S2 (Building selector tabs) on production URL | S2 (as reviewer) | `commit_gu_04` | Yes | BT verified layout |
+| Ran and documented Usability Test Session 3 with Resident-G204 | Test plan, Session 3 | `commit_gu_05` | n/a | BT reviewed log |
+ 
+**The piece I am least sure works for a real person, and how I will know by Lab 8:** whether residents actually pull out their phones and tap "Unload" while carrying wet laundry, or if they simply take their clothes and walk away. I will monitor the ratio of `resident_starts_wash_timer` to `resident_unloads_machine` in PostHog on Wednesday to see how many machines sit on "Finished".
+ 
+**One thing I did that was not my assigned story:** when connecting the Neon database, I found that Next.js server components were aggressively caching machine status responses and serving stale countdown times. I added `export const dynamic = "force-dynamic"` to the API route to ensure students always receive live machine states.
+ 
 ## 2. Pattern journal, Weeks 5 to 7
-
+ 
 ### Week 5 · One metric that matters
-
-I initially suggested tracking total page visits because if students don't open the link from our group chats, the tracker never gets used. AK pointed out that page views are a vanity presence metric—a student can open the status page, see all washers taken, and walk back up the stairs frustrated with a full basket. We narrowed the North Star down to tracked wash cycles completed per active resident per month. Beyond my lane: I ran Usability Session 2 with Resident-F305, where confusion over wash cycle lengths showed us we needed preset duration buttons (30m, 45m, 60m). My hack: I manually refreshed test timers on my own phone to see how noticeable a 5-minute timer drift felt in practice.
-
+During our worksheet discussions, I pushed back against using registered users as our core metric. In our discovery interviews, students emphasized that creating accounts with passwords would kill adoption immediately. Value is delivered only when laundry is done without a wasted staircase trip. Beyond my assigned lane: I ran Usability Session 3, where Resident-G204 got stuck when all machines were full, giving us the evidence to add the "Notify when free" concept in v2. My hack: I manually seeded the 8 machines in our local database before we had any frontend UI working.
+ 
 ### Week 6 · The smallest complete journey
-
-I pushed to cut advance machine bookings and queue reservations from Sprint 1. In our interviews, students mentioned that leaving laundry baskets on the basement floor to "hold a spot" already caused arguments—building a digital queue before reliable live machine tracking would have created ghost reservations and more friction. Beyond my lane: I helped scope S1, S2, and S3 with BT and AK so our sprint plan stayed realistic around an honest 20-hour budget instead of overcommitting. My hack: I rendered the initial machine cards from static mock arrays before wiring up the live Neon database endpoint so UI layout and tab switching could be tested early.
-
+My biggest contribution was defending Step 5 (Unload / Free Machine) in our MVP journey. AK and BT considered stopping at the countdown reaching zero, but our discovery logs proved that forgotten wet clothes dumped on dusty chairs was the primary friction point between residents. Without an explicit "Unload" state, the physical problem remains unsolved. Beyond my assigned lane: I verified that no PII (student names or room numbers) was written into the schema properties, adhering strictly to course privacy guidelines. My hack: I used standard HTML5 Web Audio API beeps instead of waiting for complex push notification permissions.
+ 
 ### Week 7 · Ship to learn
-
-Walking the live Vercel production link on phone mobile data in the basement stairwell proved that Wi-Fi assumptions are dangerous. The page loaded quickly, but checking PostHog Activity alongside the live flow revealed duplicate event firing on timer actions—showing me why unit or happy-path checks aren't enough and reconciling against real database rows is essential. Beyond my lane: I set up our PostHog team dashboard tiles and share view so telemetry could be inspected cleanly during review. My hack: I verified our internal traffic filter by triggering a test cycle with `test_walker_bt` to confirm our own testing did not pollute live resident metrics.
-
+Watching our first live walk in Lab 7 was eye-opening. We expected database writes to be our biggest point of failure, but the database performed flawlessly. Instead, the biggest trap was analytics instrumentation: a duplicate capture call inside our client component artificially doubled our North Star count. Reconciling PostHog against Neon caught this before any real student touched the link. Beyond my assigned lane: I reviewed the PostHog live event ingestion stream during BT's walk to confirm that `ms_latency` and cycle durations arrived with valid properties. My hack: I did not draft this pattern journal during Week 5; I compiled my entries during the Lab 7 ship review.
+ 
 ## 3. My DECISIONS.md lines
-
-> `Wk5 · Prototype v2: added preset cycle buttons (30m, 45m, 60m) and a 'Notify when free' button on busy machines · evidence: 02-design/user-testing/usability-findings.md (sessions 2, 3) · owner: GU`
-
-I gathered key evidence for this change during Usability Session 2, where the resident hesitated over guessing exact wash durations and asked how long each cycle actually runs.
-
-> `Wk7 · Gate passed: live at the README's Live product link, north star event firing from production, PostHog 3 = database 3 · evidence: README links, 03-build/analytics/event-schema.md · owner: AK`
-
-I helped verify this gate during the live mobile walk by running test cycles on machine `f-1` over mobile data while AK watched PostHog Activity and reconciled rows against Neon.
-
+ 
+> `Wk6 · MVP boundary: 5-step journey (open status page to unload machine); cut user accounts, SMS/Messenger push bot, and advance booking queue · evidence: 03-build/mvp-boundary.md, logs 01, 04, 06, 08, sessions 1 to 3 · owner: BT`
+ 
+I drove the evidence that kept Step 5 (unload machine) inside the MVP boundary, based on interview quotes showing that un-cleared machines are the root cause of clothes being dumped on dusty chairs.
+ 
+> `Wk8 · AI feature: Laundry Courtesy & Schedule Advisor grounded in live machine states and dorm courtesy rules to reduce idle drum time and stair trips; resident approves action · evidence: 03-build/analytics/break-readout.md, logs 01, 03, 05, 06 · owner: GU`
+ 
+I owned this decision, framing the AI feature around solving the 42-minute idle drum bottleneck by enforcing the 15-minute courtesy protocol established in our discovery logs.
+ 
 ## 4. My person this week
-
-**The field-week person I am responsible for:** Resident-F105, 1st floor Block F (from Interview 08) · **how and when the link reaches them:** direct message on Messenger on Sunday at 18:00 right before peak evening laundry hours, asking him to use the live link during his wash load and share quick feedback on accuracy and usability.
+ 
+**The field-week person I am responsible for:** Resident-G204, 2nd floor Block G (from Usability Session 3) · **how and when the link reaches them:** direct message on Messenger on Monday afternoon before their weekly Tuesday laundry routine, with the production link.
