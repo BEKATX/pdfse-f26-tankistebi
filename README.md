@@ -5,9 +5,9 @@
 
 | Link | Status |
 |---|---|
-| Prototype | [v1 Mobile Prototype](https://https://vantage-xi-opal.vercel.app/) |
-| Live product | coming Week 7 |
-| Analytics dashboard (PostHog) | coming Week 7 |
+| Prototype | [v1 Mobile Prototype](https://vantage-xi-opal.vercel.app/) |
+| Live product | https://vantage-xi-opal.vercel.app/ |
+| Analytics dashboard (PostHog) | https://eu.posthog.com/shared/xZVThl43CHnV0ABr_uTaXOujZYMTTA |
 | 12-month model | coming Week 12 |
 | Pitch deck | coming Week 13 |
 | One-pager | coming Week 15 |
