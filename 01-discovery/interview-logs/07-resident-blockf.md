@@ -18,4 +18,4 @@
 **Prediction check:** Confirmed. Physical basket queues cause disputes and confusion; students strongly prefer a transparent digital queue over anonymous baskets on the floor.  
 **Surprise ★:** Students have started labeling baskets with room numbers and notes, proving they are trying to hack together an ownership/queue system on their own.  
 **Commitment:** Agreed to test an experimental digital queue feature during Sunday evening rush.  
-**Next:** In Interview 09, explore forgotten laundry in machines and whether residents welcome automated SMS/Messenger nudges.
+**Next:** In Interview 08, explore forgotten laundry in machines and whether residents welcome automated SMS/Messenger nudges.
