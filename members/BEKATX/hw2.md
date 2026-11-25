@@ -4,40 +4,37 @@
 
 | What I shipped | Story or rung | Commit link(s), from my account | Live at the production URL? | Walked or checked by |
 |---|---|---|---|---|
-| Initial Next.js structure and Vercel production deploy | S1 / Rung 1 | `commit_hash_1` | Yes | AK walked on phone |
-| Wash cycle timer buttons (30m, 45m, 60m) and start API handler | S3 / Rung 2 | `commit_hash_2` | Yes | GU checked on phone |
-| Fixed double-fire bug in PostHog event capture | Rung 4 | `commit_hash_3` | Yes | Reconcile verified 3 = 3 with BT |
-| Walked S2 (Block F & G selector) on my phone and verified live countdown | S2 (as reviewer) | `commit_hash_4` | Yes | Me, on mobile data |
-| Logged prototype test Session 1 with Resident-F102 | Test plan, Session 1 | `commit_hash_5` | n/a | GU read log |
+| Block F and Block G toggle tabs and live machine status cards | S2 | `commit_hash_1` | Yes | GU |
+| Machine issue reporting modal and flagged state toggle | S5b (Sprint 2) | `commit_hash_2` | Yes | AK |
+| Mobile data production walk on -1 floor to clear Rungs 1 and 2 | Gate walk (Rung 1, 2) | `commit_hash_3` | Yes | AK verified in PostHog |
+| Reviewed S4 (Unload and free washer) on mobile browser | S4 (as reviewer) | `commit_hash_4` | Yes | GU adjusted button padding |
+| Ran and documented Usability Test Session 2 with Resident-F305 | Test plan, Session 2 | `commit_hash_5` | n/a | AK reviewed log |
 
-**The piece I am least sure works for a real person, and how I will know by Lab 8:** whether residents remember to tap "Unload" when taking wet clothes out, or if the washer card sits on "Finished" for hours. I will check the time gap between countdown completion and `resident_unloads_machine` in PostHog on Wednesday.
+**The piece I am least sure works for a real person, and how I will know by Lab 8:** whether residents in Block G notice the building toggle tab at the top of the screen or accidentally look at Block F's default view. I will inspect the `block` property on incoming `resident_opens_status_page` events in PostHog on Wednesday to verify that Block G students are successfully viewing their own building.
 
-**One thing I did that was not my assigned story:** during the Lab 7 walk, I helped troubleshoot why PostHog recorded 6 events instead of 3 in the reconcile check. I inspected the timer button handler and removed the duplicate client-side capture call so our PostHog count matched Neon exactly.
+**One thing I did that was not my assigned story:** during the Lab 7 production walk on mobile data, I discovered that countdown timers rendered as `NaN:NaN` on iOS Safari due to how WebKit handles ISO date strings. I reported the exact string parsing bug to AK so we could fix it before handing the production link to dorm residents.
 
 ## 2. Pattern journal, Weeks 5 to 7
 
 ### Week 5 · One metric that matters
-
-I initially wanted to track "total visits to the status page" because getting residents to open the link from the Messenger chat seemed like the hardest hurdle. My teammates pointed out that opening a webpage doesn't mean a machine was found or a staircase trip was saved; someone could open the page, see it's full, and get frustrated. We settled on "tracked wash cycles completed per active resident" as our North Star. Beyond my lane: I wrote the anonymous UUID generator in `localStorage` so we could track individual retention without a login barrier. My hack: I tested the timer flow by manually advancing system clocks before we had automatic database expirations.
+I was initially tempted to measure raw visits to the website because getting students to open the link from the dorm Messenger chat felt like our biggest obstacle. AK showed that page views are a vanity presence metric; a resident can open the site, see four occupied washers, and walk away frustrated with their basket. We committed to completed wash cycles per resident per month. Beyond my assigned lane: during Usability Session 2, I noticed Resident-F305 hesitating over how long wash programs take, which convinced us to replace manual duration inputs with preset buttons (30m, 45m, 60m). My hack: I manually manipulated device system clocks to test how noticeable a 5-minute timer drift felt.
 
 ### Week 6 · The smallest complete journey
-
-The hardest decision was cutting the Messenger notification bot. We spent hours reading the Facebook Graph API docs before realizing that business page verification would take longer than the sprint. Cutting the bot and keeping the timer strictly on-screen felt like a downgrade, but it allowed us to ship a full 5-step journey that actually works. Beyond my lane: I reviewed GU's SQL schema in Neon to ensure the `ends_at` timestamps were stored in UTC so Tbilisi phones wouldn't show negative minutes. My hack: I hardcoded the 8 machines in an SQL seed script so we didn't have to build an admin management dashboard.
+I fought hard to remove advance machine reservations from Sprint 1. In our interviews, residents described how leaving baskets on the floor to hold a spot triggered verbal arguments in the hallway; adding a digital queue before basic availability tracking worked would have created ghost reservations. Beyond my assigned lane: I worked with GU to trim our story scope so our total sprint estimate stayed within an honest 20 hours instead of an unachievable target. My hack: I built the machine status cards using static arrays in React so the layout could be reviewed before the database was connected.
 
 ### Week 7 · Ship to learn
-
-Watching BT walk the production URL on phone mobile data taught us more in two minutes than a week of local testing. The page loaded instantly, but our test washer fired duplicate events because of an uncleaned click handler. Reconciling the database against PostHog caught a silent data bug that would have completely warped our field test numbers. Beyond my lane: I drafted the field week outreach messages for the 4 dorm residents so we had our testers booked before the lab ended. My hack: I did not write this journal in Week 5; I reconstructed my notes during the Week 7 ship review.
+Walking the production URL myself on mobile data in the basement stairwell proved that campus Wi-Fi assumptions hide real bugs. The site loaded quickly, but we immediately noticed our live dashboard was double-counting timer starts when I tapped the button. Seeing PostHog increment by two for my single action showed me why automated tests are not enough—reconciling telemetry against raw database rows is the only reliable way to know if counts are true. Beyond my assigned lane: I configured our three PostHog dashboard tiles and set up the public share link for grading. My hack: I verified our internal filter by intentionally starting a test cycle under `test_walker_bt` to confirm it did not contaminate our live metrics.
 
 ## 3. My DECISIONS.md lines
 
-> `Wk5 · North star: tracked wash cycles completed per active resident per month; rejected site page views (presence, does not mean a machine was found) and total registered accounts (cumulative, violates zero-login requirement) · evidence: 03-build/analytics/event-schema.md, 01-discovery/interview-logs/01-resident-blockf.md, 06-resident-blockf.md, 10-resident-blockf.md · owner: BK`
+> `Wk5 · Prototype v2: added preset cycle buttons (30m, 45m, 60m) and a 'Notify when free' button on busy machines · evidence: 02-design/user-testing/usability-findings.md (sessions 2, 3) · owner: GU`
 
-I owned this decision. It established that value lands only when a student actually cycles laundry through the tracker, not when they passively browse the page.
+I drove the evidence for this decision during Usability Session 2, where the participant stalled because they did not know the exact minute count of the physical washer programs.
 
-> `Wk7 · Gate passed: live at the README's Live product link, north star event firing from production, PostHog 3 = database 3 · evidence: README links, 03-build/analytics/event-schema.md · owner: BK`
+> `Wk7 · Gate passed: live at the README's Live product link, north star event firing from production, PostHog 3 = database 3 · evidence: README links, 03-build/analytics/event-schema.md · owner: AK`
 
-The evidence is our Gate reconcile block in `event-schema.md`, where PostHog's 3 wash events matched the 3 rows in Neon after fixing the duplicate capture call.
+I conducted the live mobile walk on cellular data that satisfied this gate, triggering and completing cycles on machine `f-1` while AK monitored PostHog Activity.
 
 ## 4. My person this week
 
-**The field-week person I am responsible for:** Resident-F304, 3rd floor Block F · **how and when the link reaches them:** direct message on Messenger on Sunday at 18:00 before peak laundry rush, with a brief explanation and the production link.
+**The field-week person I am responsible for:** Resident-F105, 1st floor Block F (from Interview 07) · **how and when the link reaches them:** direct message on Messenger on Sunday at 18:00 before the evening laundry rush, asking him to test the live link when doing his laundry.
