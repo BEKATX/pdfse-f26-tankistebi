@@ -30,11 +30,11 @@ Watching BT walk the production URL on phone mobile data taught us more in two m
 
 ## 3. My DECISIONS.md lines
 
-> `Wk5 · North star: tracked wash cycles completed per active resident per month; rejected site page views (presence, does not mean a machine was found) and total registered accounts (cumulative, violates zero-login requirement) · evidence: 03-build/analytics/event-schema.md, 01-discovery/interview-logs/01-resident-blockf.md, 06-resident-blockf.md, 10-resident-blockf.md · owner: AK`
+> `Wk5 · North star: tracked wash cycles completed per active resident per month; rejected site page views (presence, does not mean a machine was found) and total registered accounts (cumulative, violates zero-login requirement) · evidence: 03-build/analytics/event-schema.md, 01-discovery/interview-logs/01-resident-blockf.md, 06-resident-blockf.md, 10-resident-blockf.md · owner: BK`
 
 I owned this decision. It established that value lands only when a student actually cycles laundry through the tracker, not when they passively browse the page.
 
-> `Wk7 · Gate passed: live at the README's Live product link, north star event firing from production, PostHog 3 = database 3 · evidence: README links, 03-build/analytics/event-schema.md · owner: AK`
+> `Wk7 · Gate passed: live at the README's Live product link, north star event firing from production, PostHog 3 = database 3 · evidence: README links, 03-build/analytics/event-schema.md · owner: BK`
 
 The evidence is our Gate reconcile block in `event-schema.md`, where PostHog's 3 wash events matched the 3 rows in Neon after fixing the duplicate capture call.
 
