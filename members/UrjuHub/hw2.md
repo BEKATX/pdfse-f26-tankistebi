@@ -9,7 +9,6 @@
 | Walked the entire journey on phone (mobile data) to clear Rungs 1 & 2 | Gate walk (Rung 1, 2) | `3e9f02b` | Yes | AK watched PostHog Activity |
 | Reviewed S4 (Unload and free machine) on phone at production URL | S4 (as reviewer) | `1b8d5e4` | Yes | GU fixed button margin |
 | Logged prototype test Session 2 with Resident-F305 | Test plan, Session 2 | `7a2c89f` | n/a | AK read log |
- და homework 2 უნდა ატვირთოთ კიდე
 **The piece I am least sure works for a real person, and how I will know by Lab 8:** whether students living in Block G switch to the Block G tab or if they mistakenly look at Block F by default. I will check the `block` property on `resident_opens_status_page` and `resident_starts_wash_timer` in PostHog on Wednesday to see if Block G events are actually occurring.
  
 **One thing I did that was not my assigned story:** during the Lab 7 production walk on mobile data, I noticed that the machine countdown timers on Safari were rendering as `NaN:NaN` because iOS handles ISO date strings differently than Chromium. I reported the string formatting issue immediately to AK so it could be fixed before we gave the link to dorm residents.
