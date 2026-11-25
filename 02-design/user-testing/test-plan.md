@@ -1,7 +1,5 @@
 # Prototype Test Plan
 
-**Save this file as:** `02-design/user-testing/test-plan.md`
-
 The test itself was written in Lab 4 and is frozen. This file adds the people, the schedule, and who runs each session. Sessions are logged in `02-design/user-testing/usability-findings.md`, one block each, as you run them.
 
 **Prototype v1 link:** [https://vantage-xi-opal.vercel.app/]
