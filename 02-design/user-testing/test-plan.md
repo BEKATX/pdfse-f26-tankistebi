@@ -4,7 +4,7 @@
 
 The test itself was written in Lab 4 and is frozen. This file adds the people, the schedule, and who runs each session. Sessions are logged in `02-design/user-testing/usability-findings.md`, one block each, as you run them.
 
-**Prototype v1 link:** [url here]
+**Prototype v1 link:** [https://vantage-xi-opal.vercel.app/]
 
 **Riskiest assumption under test:** Dorm residents will check a remote mobile status board from their room before heading down to the -1 floor, rather than walking down blindly or leaving baskets on the floor to hold a spot.
 
