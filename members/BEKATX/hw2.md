@@ -4,7 +4,7 @@
 
 | What I shipped | Story or rung | Commit link(s), from my account | Live at the production URL? | Walked or checked by |
 |---|---|---|---|---|
-| Initial Next.js structure and Vercel production deploy | S1 / Rung 1 | `commit_hash_1` | Yes | BT walked on phone |
+| Initial Next.js structure and Vercel production deploy | S1 / Rung 1 | `commit_hash_1` | Yes | AK walked on phone |
 | Wash cycle timer buttons (30m, 45m, 60m) and start API handler | S3 / Rung 2 | `commit_hash_2` | Yes | GU checked on phone |
 | Fixed double-fire bug in PostHog event capture | Rung 4 | `commit_hash_3` | Yes | Reconcile verified 3 = 3 with BT |
 | Walked S2 (Block F & G selector) on my phone and verified live countdown | S2 (as reviewer) | `commit_hash_4` | Yes | Me, on mobile data |
